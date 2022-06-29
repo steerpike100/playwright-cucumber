@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1484860549.9999998
+              "duration": 1782811729
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 836996809
+              "duration": 860201561
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 174782187
+              "duration": 199027946
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 457430
+              "duration": 1791972
             }
           },
           {
@@ -66,7 +66,215 @@
             },
             "result": {
               "status": "passed",
-              "duration": 12910757
+              "duration": 26036711
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I fill in the \"name\" input with \"Ted Smith\"",
+            "match": {
+              "location": "src/step-definitions/form.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 91489765
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I select the \"Male\" option from the \"gender\"",
+            "match": {
+              "location": "src/step-definitions/form.ts:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 128538356.99999999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I fill in the \"phone\" input with \"01234567848\"",
+            "match": {
+              "location": "src/step-definitions/form.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 67065845.99999999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I fill in the \"street\" input with \"123 Fake Street\"",
+            "match": {
+              "location": "src/step-definitions/form.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 78597582
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I fill in the \"city\" input with \"Fakeville\"",
+            "match": {
+              "location": "src/step-definitions/form.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 95161759
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click the \"save\" button",
+            "match": {
+              "location": "src/step-definitions/click.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 106685430
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I am directed to the \"home\" page",
+            "match": {
+              "location": "src/step-definitions/navigation.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 860153
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I fill in the \"search\" input with \"Ted Smith\"",
+            "match": {
+              "location": "src/step-definitions/form.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 83013659
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the \"full name label\" should contain the text \"Name:\"",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-value.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22771510
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "the \"name\" should contain the text \"Ted Smith\"",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-value.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17858941
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the \"gender label\" should contain the text \"Gender:\"",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-value.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11287033
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "the \"gender\" should contain the text \"Male\"",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-value.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25830180
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the \"address label\" should contain the text \"Address:\"",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-value.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16183889
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the \"address\" should contain the text \"123 Fake Street\"",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-value.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16909321
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the \"edit\" should be displayed",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-visibility.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6411947
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the \"delete\" should be displayed",
+            "match": {
+              "location": "src/step-definitions/assertions/verify-element-visibility.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5831762
             }
           },
           {
@@ -74,7 +282,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 82874273
+              "duration": 408280415
             }
           }
         ],

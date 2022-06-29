@@ -22,9 +22,11 @@ export class ScenarioWorld extends World {
         super(options)
 
         this.globalConfig = options.parameters as GlobalConfig
+
     }
 
     globalConfig: GlobalConfig
+
 
     screen!: Screen;
 

@@ -3,21 +3,32 @@ import {env, getJsonFromFile} from './env/parseEnv'
 import {
     GlobalConfig,
     HostsConfig,
-    PagesConfig
+    PagesConfig,
+    PageElementMappings,
 } from './env/global'
+import * as fs from "fs";
 
 dotenv.config({path: env('COMMON_CONFIG_FILE')})
 
 const hostsConfig: HostsConfig = getJsonFromFile(env('HOSTS_URLS_PATH'))
-console.log("hostsConfig ", hostsConfig)
+const pagesConfig: PagesConfig = getJsonFromFile(env('PAGE_URLS_PATH'))
+const mappingFiles = fs.readdirSync((`${process.cwd()}${env('PAGE_ELEMENTS_PATH')}`))
 
-const pagesConfig: PagesConfig = getJsonFromFile(env('PAGES_URLS_PATH'))
-console.log("pagesConfig ", pagesConfig)
+const pageElementMappings: PageElementMappings = mappingFiles.reduce(
+    (pageElementConfigAcc, file) =>{
+        const key = file.replace('.json', '')
+        const elementMappings = getJsonFromFile(`${env('PAGE_ELEMENTS_PATH')}${file}`);
+        return{...pageElementConfigAcc, [key]:elementMappings}
+    },
+    {}
+)
 
 const worldParameters: GlobalConfig = {
     hostsConfig,
-    pagesConfig
-}
+    pagesConfig,
+    pageElementMappings,
+};
+
 const common = `./src/features/**/*.feature \
     --require-module ts-node/register \
     --require ./src/step-definitions/**/**/*.ts \

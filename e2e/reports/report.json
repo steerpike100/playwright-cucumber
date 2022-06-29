@@ -4,56 +4,69 @@
     "elements": [
       {
         "description": "",
-        "id": "as-a-user-i-expect-to-be-able-to-navigate-to-the-home-page;as-a-user-i-expect-to-be-able-to-see-contacts",
+        "id": "as-a-user-i-expect-to-be-able-to-create-contacts-with;as-a-user-i-expect-to-be-able-to-create-a-new-contacts-with",
         "keyword": "Scenario",
-        "line": 6,
-        "name": "As a user I expect to be able to see contacts",
+        "line": 4,
+        "name": "As a user I expect to be able to create a new contacts with",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1256134580
+              "duration": 1484860549.9999998
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 7,
+            "line": 5,
             "name": "I am on the \"home\" page",
             "match": {
-              "location": "src/step-definitions/navigation.ts:7"
+              "location": "src/step-definitions/navigation.ts:10"
             },
             "result": {
               "status": "passed",
-              "duration": 689143575
+              "duration": 836996809
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I click the \"create\" button",
+            "match": {
+              "location": "src/step-definitions/click.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 174782187
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I am directed to the \"create contact\" page",
+            "match": {
+              "location": "src/step-definitions/navigation.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 457430
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 8,
-            "name": "the \"playground logo\" should be displayed",
+            "name": "the \"create contact header\" should contain the text \"Create Contact\"",
             "match": {
-              "location": "src/step-definitions/assertions/verify-element-visibility.ts:21"
+              "location": "src/step-definitions/assertions/verify-element-value.ts:6"
             },
             "result": {
               "status": "passed",
-              "duration": 86627720
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "the \"contacts header\" should contain the text \"Contacts\"",
-            "match": {
-              "location": "src/step-definitions/assertions/verify-element-visibility.ts:4"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 8831808
+              "duration": 12910757
             }
           },
           {
@@ -61,7 +74,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 84694959
+              "duration": 82874273
             }
           }
         ],
@@ -69,24 +82,16 @@
           {
             "name": "@dev",
             "line": 3
-          },
-          {
-            "name": "@smoke",
-            "line": 4
-          },
-          {
-            "name": "@regression",
-            "line": 5
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "as-a-user-i-expect-to-be-able-to-navigate-to-the-home-page",
+    "id": "as-a-user-i-expect-to-be-able-to-create-contacts-with",
     "line": 1,
     "keyword": "Feature",
-    "name": "As a user I expect to be able to navigate to the home page",
+    "name": "As a user I expect to be able to create contacts with",
     "tags": [],
-    "uri": "src/features/home-page.feature"
+    "uri": "src/features/create-contact.feature"
   }
 ]

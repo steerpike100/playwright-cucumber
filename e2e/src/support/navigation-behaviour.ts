@@ -13,11 +13,7 @@ export const navigateToPage = async (
 
     const hostPath = hostsConfig[`${hostName}`]
 
-    console.log("hostpath ", hostPath)
-
     const url = new URL(hostPath);
-
-    console.log("url ", url)
 
     const pagesConfigItem = pagesConfig[pageId];
     url.pathname = pagesConfigItem.route;

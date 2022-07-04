@@ -2,6 +2,8 @@
 
 var _cucumber = require("@cucumber/cucumber");
 
+var _browserBehaviour = require("../../support/browser-behaviour");
+
 var _parseEnv = require("../../env/parseEnv");
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -18,6 +20,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             console.log("Running cucumber scenario ".concat(scenario.pickle.name));
             contextOptions = {
+              viewport: (0, _browserBehaviour.getViewPort)(),
+              ignoreHTTPSErrors: true,
               recordVideo: {
                 dir: "".concat((0, _parseEnv.env)('VIDEO_PATH')).concat(scenario.pickle.name)
               }

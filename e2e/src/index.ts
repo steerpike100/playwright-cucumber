@@ -8,7 +8,10 @@ import {
 } from './env/global'
 import * as fs from "fs";
 
+const environment = env('NODE_ENV')
+
 dotenv.config({path: env('COMMON_CONFIG_FILE')})
+dotenv.config({path:`${env('ENV_PATH')}${environment}.env`})
 
 const hostsConfig: HostsConfig = getJsonFromFile(env('HOSTS_URLS_PATH'))
 const pagesConfig: PagesConfig = getJsonFromFile(env('PAGE_URLS_PATH'))
@@ -34,7 +37,9 @@ const common = `./src/features/**/*.feature \
     --require ./src/step-definitions/**/**/*.ts \
     --world-parameters ${JSON.stringify(worldParameters)} \
     -f json:./reports/report.json \
-    --format progress-bar`;
+    --format progress-bar \
+    --parallel ${env('PARALLEL')} \
+    --retry ${env('RETRY')}`;
 
 const dev = `${common} --tags '@dev'`;
 const smoke = `${common} --tags '@smoke'`;

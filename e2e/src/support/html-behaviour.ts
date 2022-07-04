@@ -8,8 +8,8 @@ export const clickElement = async (
     await page.click(elementIdentifier)
 }
 
-export const inputValue = async(
-    page:Page,
+export const inputValue = async (
+    page: Page,
     elementIdentifier: ElementLocator,
     input: string,
 ): Promise<void> => {
@@ -20,8 +20,14 @@ export const inputValue = async(
 export const selectValue = async (
     page: Page,
     elementIdentifier: ElementLocator,
-    option:string,
-): Promise<void> =>{
+    option: string,
+): Promise<void> => {
     await page.focus(elementIdentifier);
     await page.selectOption(elementIdentifier, option)
+}
+export const checkElement = async (
+    page: Page,
+    elementIdentifier: ElementLocator
+): Promise<void> => {
+    await page.check(elementIdentifier);
 }

@@ -1,4 +1,4 @@
-import {Given} from '@cucumber/cucumber'
+import {Given,Then} from '@cucumber/cucumber'
 import {PageId} from '../env/global'
 import {
     navigateToPage,
@@ -25,7 +25,7 @@ Given(
     }
 )
 
-Given(
+Then(
     /^I am directed to the "([^"]*)" page$/,
     async function (this: ScenarioWorld, pageId: PageId) {
         const {

@@ -2,39 +2,35 @@ import playwright, {
     BrowserContextOptions,
     Page,
     Browser,
-    BrowserType,
-    BrowserContext
+    BrowserContext,
+    BrowserType
 } from "playwright";
-
-import {env} from '../../env/parseEnv'
-import {World, IWorldOptions, setWorldConstructor} from "@cucumber/cucumber"
-import {GlobalConfig} from '../../env/global'
+import { env } from '../../env/parseEnv'
+import { World, IWorldOptions, setWorldConstructor} from "@cucumber/cucumber";
+import { GlobalConfig, GlobalVariables } from '../../env/global';
 
 export type Screen = {
-    browser: Browser
-    context: BrowserContext
-    page: Page
-
-}
-
-export type Request = {
-    request: Request
+    browser: Browser;
+    context: BrowserContext;
+    page: Page;
 }
 
 export class ScenarioWorld extends World {
     constructor(options: IWorldOptions) {
         super(options)
 
-        this.globalConfig = options.parameters as GlobalConfig
-
+        this.globalConfig = options.parameters as GlobalConfig;
+        this.globalVariables = {};
     }
 
-    globalConfig: GlobalConfig
+    globalConfig: GlobalConfig;
 
-    screen!: Screen
+    globalVariables: GlobalVariables;
+
+    screen!: Screen;
 
     async init(contextOptions?: BrowserContextOptions): Promise<Screen> {
-        await this.screen?.page?.close()
+        await this.screen?.page?.close();
         await this.screen?.context?.close()
         await this.screen?.browser?.close()
 
@@ -42,13 +38,14 @@ export class ScenarioWorld extends World {
         const context = await browser.newContext(contextOptions)
         const page = await context.newPage();
 
-        this.screen = {browser, context, page};
+        this.screen = { browser, context, page };
 
         return this.screen
     }
 
     private newBrowser = async (): Promise<Browser> => {
-        const automationBrowsers = ["chromium", "firefox", "webkit"]
+
+        const automationBrowsers = ['chromium', 'firefox', 'webkit']
         type AutomationBrowser = typeof automationBrowsers[number]
         const automationBrowser = env('UI_AUTOMATION_BROWSER') as AutomationBrowser
 
@@ -60,7 +57,7 @@ export class ScenarioWorld extends World {
         })
         return browser;
     }
-}
 
+}
 
 setWorldConstructor(ScenarioWorld)

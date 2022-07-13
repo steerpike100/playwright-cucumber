@@ -1,5 +1,8 @@
 import { When } from '@cucumber/cucumber';
-import { ScenarioWorld } from './setup/world';;
+import { ScenarioWorld } from './setup/world';
+import {logger} from "../logger";
+
+;
 
 When(
     /^I click (accept)?(dismiss)? on the alert dialog$/,
@@ -8,7 +11,7 @@ When(
             screen: { page },
         } = this;
 
-        console.log(`I click ${acceptDialog?'dismiss ':'accept '}on the alert dialog`);
+        logger.log(`I click ${acceptDialog?'dismiss ':'accept '}on the alert dialog`);
 
         if (!!negateDialog) {
             page.on('dialog', dialog => dialog.dismiss());

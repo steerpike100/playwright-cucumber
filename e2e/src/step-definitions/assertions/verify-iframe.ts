@@ -4,6 +4,7 @@ import {ScenarioWorld} from "../setup/world";
 import {waitFor} from '../../support/wait-for-behaviour'
 import {ElementKey} from "../../env/global";
 import {getIframeElement} from "../../support/html-behaviour";
+import {logger} from "../../logger";
 
 
 Then(
@@ -16,13 +17,14 @@ Then(
 
         } = this;
 
-        console.log(`the ${elementKey} on the  ${iframeName} iframe should ${negate ? 'not' : ''} be displayed`)
+        logger.log(`the ${elementKey} on the  ${iframeName} iframe should ${negate ? 'not' : ''} be displayed`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
         const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);
-        const elementIframe = await getIframeElement(page, iframeIdentifier);
+
 
         await waitFor(async () => {
+            const elementIframe = await getIframeElement(page, iframeIdentifier);
             const isElementVisible = (await elementIframe?.$(elementIdentifier)) != null;
             return isElementVisible === !negate
         })
@@ -37,13 +39,13 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate ? 'not ' : ''}contain the text ${expectedElementText}`);
+        logger.log(`the ${elementKey} should ${negate ? 'not ' : ''}contain the text ${expectedElementText}`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
         const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);
-        const elementIframe = await getIframeElement(page, iframeIdentifier);
 
         await waitFor(async () => {
+            const elementIframe = await getIframeElement(page, iframeIdentifier);
             const elementText = await elementIframe?.textContent(elementIdentifier);
             return elementText?.includes(expectedElementText) === !negate;
         });
@@ -58,13 +60,14 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate ? 'not ' : ''}equal the text ${expectedElementText}`);
+        logger.log(`the ${elementKey} should ${negate ? 'not ' : ''}equal the text ${expectedElementText}`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
         const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);
-        const elementIframe = await getIframeElement(page, iframeIdentifier);
+
 
         await waitFor(async () => {
+            const elementIframe = await getIframeElement(page, iframeIdentifier);
             const elementText = await elementIframe?.textContent(elementIdentifier);
             return (elementText === expectedElementText) === !negate;
         });

@@ -1,5 +1,5 @@
-import { Page, Frame } from 'playwright';
-import { ElementLocator } from '../env/global';
+import {Page, Frame} from 'playwright';
+import {ElementLocator} from '../env/global';
 
 export const clickElement = async (
     page: Page,
@@ -50,10 +50,11 @@ export const uncheckElement = async (
     await page.uncheck(elementIdentifier)
 }
 
-export const getValue = async(
+export const getValue = async (
     page: Page,
     elementIdentifier: ElementLocator
 ): Promise<string | null> => {
+    await page.waitForSelector(elementIdentifier)
     const value = await page.$eval<string, HTMLSelectElement>(elementIdentifier, el => {
         return el.value;
     })
@@ -70,7 +71,7 @@ export const getIframeElement = async (
     return elementIframe
 }
 
-export const inputValueOnIframe =  async (
+export const inputValueOnIframe = async (
     elementIframe: Frame,
     elementIdentifier: ElementLocator,
     inputValue: string
@@ -88,11 +89,35 @@ export const inputValueOnPage = async (
     await pages[pageIndex].fill(elementIdentifier, inputValue)
 }
 
-export const getAttributeText = async(
+export const getAttributeText = async (
     page: Page,
     elementIdentifier: ElementLocator,
     attribute: string,
 ): Promise<string | null> => {
     const attributeText = page.locator(elementIdentifier).getAttribute(attribute)
     return attributeText;
+}
+
+export const scrollIntoView = async (
+    page: Page,
+    elementIdentifier: ElementLocator,
+): Promise<void> => {
+    const element = page.locator(elementIdentifier)
+    await element.scrollIntoViewIfNeeded()
+}
+
+export const elementChecked = async (
+    page: Page,
+    elementIdentifier: ElementLocator,
+): Promise<boolean | null> => {
+    const checked = await page.isChecked(elementIdentifier)
+    return checked
+}
+
+export const getElementText = async (
+    page: Page,
+    elementIdentifier: ElementLocator,
+): Promise<string | null> => {
+    const text = await page.textContent(elementIdentifier)
+    return text;
 }

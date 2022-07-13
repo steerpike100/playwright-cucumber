@@ -3,6 +3,7 @@ import { ScenarioWorld } from '../setup/world';
 import { waitFor } from '../../support/wait-for-behaviour';
 import { getElementLocator } from '../../support/web-element-helper';
 import { ElementKey } from '../../env/global';
+import {logger} from "../../logger";
 
 Then(
     /^the "([^"]*)" should( not)? contain the "([^"]*)" stored in global variables$/,
@@ -13,7 +14,7 @@ Then(
             globalVariables,
         } = this;
 
-        console.log(
+        logger.log(
             `the ${elementKey} should ${negate?'not ':''}contain the ${globalVariables[variableKey]} stored in global variables`
         );
 
@@ -36,7 +37,7 @@ Then(
             globalVariables,
         } = this;
 
-        console.log(
+        logger.log(
             `the ${elementKey} should ${negate?'not ':''}equal the ${globalVariables[variableKey]} stored in global variables`
         );
 

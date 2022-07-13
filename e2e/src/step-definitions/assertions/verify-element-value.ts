@@ -1,28 +1,39 @@
-import { Then } from '@cucumber/cucumber'
-import { ElementKey } from '../../env/global';
+import {Then} from '@cucumber/cucumber'
+import {ElementKey} from '../../env/global';
 import {
     getValue,
-    getAttributeText
+    getAttributeText, getElementText
 } from '../../support/html-behaviour'
-import { ScenarioWorld } from '../setup/world';
+import {ScenarioWorld} from '../setup/world';
 import {getElementLocator} from "../../support/web-element-helper";
-import { waitFor } from '../../support/wait-for-behaviour';
+import {waitFor, waitForSelector} from '../../support/wait-for-behaviour';
+import {logger} from "../../logger";
 
 Then(
     /^the "([^"]*)" should( not)? contain the text "(.*)"$/,
-    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean, expectedElementText: string) {
+    async function (this: ScenarioWorld, elementKey: ElementKey, negate: boolean, expectedElementText: string) {
         const {
-            screen: { page },
+            screen: {page},
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate?'not':''} contain the text ${expectedElementText}`)
+        logger.log(`the ${elementKey} should ${negate ? 'not' : ''} contain the text ${expectedElementText}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
         await waitFor(async () => {
-            const elementText = await page.textContent(elementIdentifier)
-            return elementText?.includes(expectedElementText) === !negate;
+
+            const elementStable = await getElementText(page, elementIdentifier)
+
+            if(elementStable) {
+
+                const elementText = await page.textContent(elementIdentifier)
+                logger.debug("elementText ", elementText)
+                logger.debug("expectedElementText ", expectedElementText)
+                return elementText?.includes(expectedElementText) === !negate;
+            }else{
+                return elementStable
+            }
         });
 
     }
@@ -30,13 +41,13 @@ Then(
 
 Then(
     /^the "([^"]*)" should( not)? equal the text "(.*)"$/,
-    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean, expectedElementText: string) {
+    async function (this: ScenarioWorld, elementKey: ElementKey, negate: boolean, expectedElementText: string) {
         const {
             screen: {page},
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate?'not':''}equal the text ${expectedElementText}`)
+        logger.log(`the ${elementKey} should ${negate ? 'not' : ''}equal the text ${expectedElementText}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
@@ -49,13 +60,13 @@ Then(
 
 Then(
     /^the "([^"]*)" should( not)? contain the value "(.*)"$/,
-    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean, elementValue: string) {
+    async function (this: ScenarioWorld, elementKey: ElementKey, negate: boolean, elementValue: string) {
         const {
-            screen: { page },
+            screen: {page},
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate?'not':''}contain the value ${elementValue}`)
+        logger.log(`the ${elementKey} should ${negate ? 'not' : ''}contain the value ${elementValue}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
@@ -68,13 +79,13 @@ Then(
 
 Then(
     /^the "([^"]*)" should( not)? equal the value "(.*)"$/,
-    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean, elementValue: string) {
+    async function (this: ScenarioWorld, elementKey: ElementKey, negate: boolean, elementValue: string) {
         const {
-            screen: { page },
+            screen: {page},
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate?'not':''}equal the value ${elementValue}`)
+        logger.log(`the ${elementKey} should ${negate ? 'not' : ''}equal the value ${elementValue}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
@@ -88,13 +99,13 @@ Then(
 
 Then(
     /^the "([^"]*)" should( not)? be enabled$/,
-    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean) {
+    async function (this: ScenarioWorld, elementKey: ElementKey, negate: boolean) {
         const {
             screen: {page},
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate?'not':''}be enabled`)
+        logger.log(`the ${elementKey} should ${negate ? 'not' : ''}be enabled`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
@@ -114,12 +125,12 @@ Then(
         expectedElementText: string
     ) {
         const {
-            screen: { page },
+            screen: {page},
             globalConfig,
         } = this;
 
-        console.log(
-            `the ${elementPosition} ${elementKey} should ${negate?'not ':''}contain the text ${expectedElementText}`
+        logger.log(
+            `the ${elementPosition} ${elementKey} should ${negate ? 'not ' : ''}contain the text ${expectedElementText}`
         );
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
@@ -136,11 +147,11 @@ Then(
     /^the "([^"]*)" "([^"]*)" attribute should( not)? contain the text "(.*)"$/,
     async function (this: ScenarioWorld, elementKey: ElementKey, attribute: string, negate: boolean, expectedElementText: string) {
         const {
-            screen: { page },
+            screen: {page},
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} ${attribute} attribute should ${negate?'not ':''}contain the text ${expectedElementText}`);
+        logger.log(`the ${elementKey} ${attribute} attribute should ${negate ? 'not ' : ''}contain the text ${expectedElementText}`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 

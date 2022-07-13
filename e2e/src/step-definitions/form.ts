@@ -1,9 +1,13 @@
 import {Then} from '@cucumber/cucumber'
-import {waitFor} from '../support/wait-for-behaviour'
+import {waitFor, waitForSelector} from '../support/wait-for-behaviour'
 import {getElementLocator} from '../support/web-element-helper'
 import {ScenarioWorld} from './setup/world'
 import {ElementKey} from '../env/global'
 import {inputValue, selectValue} from "../support/html-behaviour";
+import {
+    parseInput
+} from '../support/input-helper'
+import {logger} from '../logger'
 
 Then(
     /^I fill in the "([^"]*)" input with "([^"]*)"$/,
@@ -13,18 +17,19 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`I fill in the ${elementKey} input with ${input}`)
+        logger.log(`I fill in the ${elementKey} input with ${input}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
         await waitFor(async () => {
-            const result = await page.waitForSelector(elementIdentifier, {
-                state: 'visible'
-            })
-            if (result) {
-                await inputValue(page, elementIdentifier, input)
+
+            const elementStable = await waitForSelector(page, elementIdentifier)
+
+            if (elementStable) {
+                const parsedInput = parseInput(input, globalConfig)
+                await inputValue(page, elementIdentifier, parsedInput)
             }
-            return result;
+            return elementStable;
         });
     }
 )
@@ -36,19 +41,18 @@ Then(
             screen: {page},
             globalConfig,
         } = this;
-        console.log(`I select the ${option} option from the ${elementKey}`)
+        logger.log(`I select the ${option} option from the ${elementKey}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
         await waitFor(async () => {
-            const result = await page.waitForSelector(elementIdentifier, {
-                state: 'visible'
-            })
 
-            if (result) {
+            const elementStable = await waitForSelector(page, elementIdentifier)
+
+            if (elementStable) {
                 await selectValue(page, elementIdentifier, option)
             }
-            return result;
+            return elementStable;
         })
     }
 )

@@ -4,9 +4,10 @@ import {
     checkElement,
     uncheckElement,
 } from '../support/html-behaviour'
-import {waitFor} from '../support/wait-for-behaviour'
+import {waitFor, waitForSelector} from '../support/wait-for-behaviour'
 import {getElementLocator} from '../support/web-element-helper';
 import {ElementKey} from '../env/global'
+import {logger} from '../logger';
 
 Then(
     /^I (check)?(uncheck)? the "([^"*]*)" (?:check box|radio button|switch)$/,
@@ -16,26 +17,23 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`I ${unchecked ? 'uncheck ' : 'check'} the ${elementKey} check box|radio button`)
+        logger.log(`I ${unchecked ? 'uncheck ' : 'check'} the ${elementKey} check box|radio button`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 
-        console.log("check", checked)
-        console.log("unchecked", unchecked)
-
         await waitFor(async () => {
-            const result = await page.waitForSelector(elementIdentifier, {
-                state: 'visible',
-            })
-            if (result) {
-                if(!!unchecked){
-                    console.log("test", !!unchecked)
+
+            const elementStable = await waitForSelector(page, elementIdentifier)
+
+            if (elementStable) {
+                if (!!unchecked) {
+                    logger.log("test", !!unchecked)
                     await uncheckElement(page, elementIdentifier)
-                }else{
+                } else {
                     await checkElement(page, elementIdentifier)
                 }
             }
-            return result;
+            return elementStable;
         })
     }
 )

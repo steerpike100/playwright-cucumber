@@ -1,4 +1,5 @@
 import { Then } from '@cucumber/cucumber';
+import { logger } from '../logger';
 import { ScenarioWorld } from './setup/world';
 
 Then(/^I wait "([^"]*)" seconds?$/, async function (this: ScenarioWorld, waitSeconds: string) {
@@ -6,7 +7,7 @@ Then(/^I wait "([^"]*)" seconds?$/, async function (this: ScenarioWorld, waitSec
         screen: { page },
     } = this;
 
-    console.log(`I wait ${waitSeconds} seconds`);
+    logger.log(`I wait ${waitSeconds} seconds`);
 
     await page.waitForTimeout(parseInt(waitSeconds, 10) * 1000);
 });

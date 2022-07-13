@@ -1,5 +1,6 @@
 import {Page} from 'playwright';
 import {GlobalConfig, PageId} from '../env/global'
+import {logger} from "../logger";
 
 export const navigateToPage = async (
     page: Page,
@@ -18,7 +19,7 @@ export const navigateToPage = async (
     const pagesConfigItem = pagesConfig[pageId];
     url.pathname = pagesConfigItem.route;
 
-    console.log("pages route ", url.pathname)
+    logger.log("pages route ", url.pathname)
 
     await page.goto(url.href)
 };
@@ -39,7 +40,7 @@ export const currentPathMatchesPageId = (
     globalConfig: GlobalConfig,
 ): boolean => {
     const {pathname: currentPath} = new URL(page.url())
-    console.log("currentPath ", currentPath)
+    logger.log("currentPath ", currentPath)
     return pathMatchesPageId(currentPath, pageId, globalConfig)
 };
 
@@ -68,4 +69,8 @@ export const getCurrentPageId = (
         )
     }
     return currentPageId;
+}
+
+export const reloadPage = async (page:Page): Promise<void> =>{
+    await page.reload;
 }

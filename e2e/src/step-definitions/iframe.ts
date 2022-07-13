@@ -1,34 +1,37 @@
 import {Then} from '@cucumber/cucumber'
-import {waitFor} from '../support/wait-for-behaviour'
+import {waitFor, waitForSelector} from '../support/wait-for-behaviour'
 import {getElementLocator} from '../support/web-element-helper'
 import {ScenarioWorld} from './setup/world'
 import {ElementKey} from '../env/global'
-import {getIframeElement, inputValueOnIframe} from "../support/html-behaviour";
+import {getIframeElement, inputValue, inputValueOnIframe} from "../support/html-behaviour";
+import {logger} from "../logger";
 
 
 Then(
     /^I fill in the "([^"]*)" input on the "([^"]*)" iframe with "([^"]*)"$/,
-    async function (this: ScenarioWorld, elementKey: ElementKey, iframeName: string, input: string) {
+    async function (this: ScenarioWorld, elementKey: ElementKey, iframeName: string, inputValue: string) {
         const {
             screen: { page },
-            globalConfig,
+            globalConfig
         } = this;
 
-        console.log(`I fill in the ${elementKey} input on the ${iframeName} iframe with ${input}`);
+        logger.log(`I fill in the ${elementKey} input on the ${iframeName} iframe with ${inputValue}`);
 
-        const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
-        const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);
-        const elementIframe = await getIframeElement(page, iframeIdentifier);
+        const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
+        const iframeIdentifier = getElementLocator(page, iframeName, globalConfig)
 
         await waitFor(async () => {
-            const result = await page.waitForSelector(iframeIdentifier, { state: 'visible' });
 
-            if (result) {
+            const iframeStable = await waitForSelector(page, iframeIdentifier)
+
+            if (iframeStable) {
+                const elementIframe = await getIframeElement(page, iframeIdentifier)
                 if (elementIframe) {
-                    await inputValueOnIframe(elementIframe, elementIdentifier, input);
+                    await inputValueOnIframe(elementIframe, elementIdentifier, inputValue)
                 }
             }
-            return result;
-        });
+
+            return iframeStable;
+        })
     }
-);
+)

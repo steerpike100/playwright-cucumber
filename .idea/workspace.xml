@@ -1,84 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bce1d527-c564-4480-ae27-6d22624bd655" name="Default Changelist" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/e2e/src/features/playground/avatars.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/features/playground/cards.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/features/playground/drop-down-menus.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/features/playground/login.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/features/playground/page-refresh.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/features/playground/select-boxes.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/logger/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/logger/logger.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/step-definitions/scroll.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/support/input-helper.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/support/tag-helper.ts" afterDir="false" />
+    <list default="true" id="bce1d527-c564-4480-ae27-6d22624bd655" name="Default Changelist" comment="Stuff">
+      <change afterPath="$PROJECT_DIR$/buildkite/pipeline.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/buildkite-automation.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/config/emails.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/config/emails.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/config/mappings/playground.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/config/mappings/playground.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/dist/env/parseEnv.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/dist/env/parseEnv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/dist/step-definitions/assertions/verify-element-visibility.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/dist/step-definitions/assertions/verify-element-visibility.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/dist/step-definitions/navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/dist/step-definitions/navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/dist/step-definitions/setup/hooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/dist/step-definitions/setup/hooks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/env/common.env" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/env/common.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/env/localhost.env" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/env/localhost.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/env/production.env" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/env/production.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/cucumber-html-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/reports/cucumber-html-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/report.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/reports/report.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/screenshots/After_9136.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/screenshots/As a user I can interact and assert with new tabs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on autocomplete inputs/0c19c8c393e4d7bec6f37b99b36820f6.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on autocomplete links/25eb79b17118733ad3f8c602d6d1100f.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on browser alerts/b06507ab289921e440a8bba5d80d1e83.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on buttons at index/e6e854253d99aa8b82f4cf2f7ec70d85.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on checkboxes/30d69ed34e2e24419d9f247be258bc8e.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on hidden and displayed text/cc6e9e5a4fb283c7217bcc54f9c8cace.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on iframes/9c93a066562a21d6cfb4c060686100f7.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on input validation/f08497f882c4ba71be59b986ccdc3c54.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on page alerts/063b3293bf38cf1b94b549eaeae9189d.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on radio buttons/011370f639a2f414f784e5f1e8090741.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on stored values/f9fbc87f2d915418032c46db1e0b937e.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on switches/1ba1af8b71368f7551e98ced8279a4ed.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on tables/a50ffe2476f470a87ea38efb5dcc3116.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on text areas/d8c4c388118eab820974f073e1700616.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on tooltips/32f561f7efc98068b25b3fb239324e8f.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert on various inputs/d79987e18f586f02acc42901365527a5.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert with new tabs/968c8409718f34856f912bf9b8e290d7.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert with new windows/450ae8c0b364077f22174bbbecd337d4.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I can interact and assert with new windows/7a9d2e022167f6709a421f616b9b8d62.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I expect to be able to create a new contacts with/aeddd0b89572636e486f6630aacda8f2.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/reports/videos/As a user I expect to be able to see contacts/0cedfcea6f50f3f232316fbe411ba834.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/env/global.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/env/global.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/env/parseEnv.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/env/parseEnv.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/features/create-contact.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/features/create-contact.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/features/playground/checkboxes.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/features/playground/checkboxes.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/features/playground/hidden-text.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/features/playground/hidden-text.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/features/playground/iframes.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/features/playground/iframes.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/features/playground/inputs.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/features/playground/inputs.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/features/playground/stored-values.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/features/playground/stored-values.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/features/playground/text-areas.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/features/playground/text-areas.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/alert.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/alert.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-checked.ts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-checked.ts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-value.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-value.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-visibility.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-visibility.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-iframe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-iframe.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-new-page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-new-page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-stored-value.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-stored-value.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-table-value.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-table-value.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/check.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/check.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/click.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/click.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/form.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/general.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/general.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/iframe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/iframe.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/navigation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/navigation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/setup/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/setup/hooks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/step-definitions/stored.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/step-definitions/stored.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/support/html-behaviour.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/support/html-behaviour.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e/src/support/wait-for-behaviour.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/src/support/wait-for-behaviour.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e/run_tests.sh" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/run_tests.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,25 +102,25 @@
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "/Users/steveb/Documents/TRAINING/testing-talks-hub/react-app/e2e/src/features/playground",
+    "last_opened_file_path": "/Users/steveb/Documents/TRAINING/testing-talks-hub/react-app/e2e/config",
     "nodejs_package_manager_path": "yarn",
     "ts.external.directory.path": "/Users/steveb/Documents/TRAINING/testing-talks-hub/react-app/e2e/node_modules/typescript/lib"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/e2e/config" />
       <recent name="$PROJECT_DIR$/e2e/src/features/playground" />
+      <recent name="$PROJECT_DIR$/e2e/src/features" />
       <recent name="$PROJECT_DIR$/e2e/config/mappings" />
       <recent name="$PROJECT_DIR$/e2e/src/step-definitions/assertions" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/e2e/src/features" />
       <recent name="$PROJECT_DIR$/e2e/src/step-definitions/assertions" />
       <recent name="$PROJECT_DIR$/e2e/src/step-definitions" />
       <recent name="$PROJECT_DIR$/e2e/src/features/playground" />
       <recent name="$PROJECT_DIR$/e2e/src/env" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager" selected="npm.cucumber:localhost">
@@ -275,6 +202,9 @@
       <workItem from="1656683108503" duration="1458000" />
       <workItem from="1656859692715" duration="18767000" />
       <workItem from="1656941603181" duration="6102000" />
+      <workItem from="1657736406732" duration="424000" />
+      <workItem from="1657782899749" duration="4487000" />
+      <workItem from="1657804984823" duration="38592000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1654876225774</created>
@@ -283,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654876225774</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Stuff">
+      <created>1657734836453</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657734836453</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -336,30 +273,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-value.ts</url>
-          <line>19</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-value.ts</url>
-          <line>17</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/support/web-element-helper.ts</url>
           <line>10</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/support/web-element-helper.ts</url>
-          <line>12</line>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/web-element-helper.ts</url>
@@ -367,19 +290,9 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/form.ts</url>
-          <line>21</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/click.ts</url>
-          <line>19</line>
+          <line>20</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/navigation.ts</url>
-          <line>15</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/navigation.ts</url>
@@ -393,82 +306,57 @@
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts</url>
-          <line>37</line>
+          <line>35</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts</url>
-          <line>41</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts</url>
-          <line>42</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts</url>
-          <line>43</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts</url>
-          <line>27</line>
+          <line>25</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts</url>
-          <line>28</line>
+          <line>26</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts</url>
-          <line>31</line>
+          <line>29</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/navigation-behaviour.ts</url>
-          <line>32</line>
+          <line>30</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/form.ts</url>
-          <line>13</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/form.ts</url>
-          <line>19</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-visibility.ts</url>
-          <line>10</line>
+          <line>11</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-visibility.ts</url>
-          <line>9</line>
+          <line>10</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-visibility.ts</url>
-          <line>19</line>
+          <line>17</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-visibility.ts</url>
-          <line>24</line>
+          <line>22</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-visibility.ts</url>
-          <line>25</line>
+          <line>23</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/step-definitions/assertions/verify-element-visibility.ts</url>
-          <line>21</line>
+          <line>19</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
@@ -491,41 +379,78 @@
           <line>9</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/check.ts</url>
-          <line>25</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/wait-for-behaviour.ts</url>
-          <line>31</line>
-          <properties lambdaOrdinal="-1" />
+          <line>60</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/wait-for-behaviour.ts</url>
-          <line>32</line>
-          <properties lambdaOrdinal="-1" />
+          <line>61</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/wait-for-behaviour.ts</url>
-          <line>33</line>
-          <properties lambdaOrdinal="-1" />
+          <line>62</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/wait-for-behaviour.ts</url>
-          <line>35</line>
-          <properties lambdaOrdinal="-1" />
+          <line>64</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/e2e/src/support/wait-for-behaviour.ts</url>
-          <line>37</line>
-          <properties lambdaOrdinal="-1" />
+          <line>66</line>
           <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint type="javascript">
+          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/click.ts</url>
+          <line>22</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint type="javascript">
+          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/click.ts</url>
+          <line>17</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint type="javascript">
+          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/click.ts</url>
+          <line>14</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint type="javascript">
+          <url>file://$PROJECT_DIR$/e2e/src/support/web-element-helper.ts</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint type="javascript">
+          <url>file://$PROJECT_DIR$/e2e/src/support/web-element-helper.ts</url>
+          <line>12</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint type="javascript">
+          <url>file://$PROJECT_DIR$/e2e/src/support/web-element-helper.ts</url>
+          <line>7</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/form.ts</url>
+          <line>89</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/e2e/src/step-definitions/navigation.ts</url>
+          <line>15</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

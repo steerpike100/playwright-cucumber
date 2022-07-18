@@ -1,5 +1,5 @@
 import {Then} from '@cucumber/cucumber';
-import {waitFor, waitForSelector, waitForSelectorOnPage} from '../support/wait-for-behaviour';
+import {waitFor, waitForSelector, waitForResult} from '../support/wait-for-behaviour';
 import {
     inputValueOnPage,
 } from '../support/html-behaviour';
@@ -9,26 +9,33 @@ import {ElementKey} from '../env/global';
 import {logger} from "../logger";
 
 Then(
-    /^I fill in the "([^"]*)" input on the "([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd)" (?:tab|window) with "([^"]*)"$/,
-    async function (this: ScenarioWorld, elementKey: ElementKey, elementPosition: string, input: string) {
+    /^I retrieve the "([^"]*)" text and store it as "([^"]*)" in global variables$/,
+    async function (this: ScenarioWorld, elementKey: ElementKey, variableKey: string) {
         const {
-            screen: {page, context},
+            screen: {page},
             globalConfig,
-        } = this;
+            globalVariables,
+        } = this
 
-        logger.log(`I fill in the ${elementKey} input on the ${elementPosition} tab|window with ${input}`);
+        logger.log(`I retrieve the ${elementKey} text and store it as ${variableKey} in global variables`)
 
-        const pageIndex = Number(elementPosition.match(/\d/g)?.join('')) - 1;
-
-        const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
+        const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
         await waitFor(async () => {
-            let pages = context.pages();
-            const elementStable = await waitForSelectorOnPage(page, elementIdentifier, pages, pageIndex)
-            if (elementStable) {
-                await inputValueOnPage(pages, pageIndex, elementIdentifier, input)
-            }
-            return elementStable;
-        });
+                const elementStable = await waitForSelector(page, elementIdentifier)
+
+                if (elementStable) {
+                    const elementText = await page.textContent(elementIdentifier)
+                    if (elementText != null) {
+                        globalVariables[variableKey] = elementText
+                        return waitForResult.PASS
+                    }
+                }
+
+                return waitForResult.ELEMENT_NOT_AVAILABLE
+            },
+            globalConfig,
+            {target: elementKey});
+
     }
-);
+)

@@ -1,13 +1,15 @@
 import {Then} from '@cucumber/cucumber'
-import {waitFor, waitForSelector} from '../support/wait-for-behaviour'
+import {waitFor, waitForSelector, waitForResult} from '../support/wait-for-behaviour'
 import {getElementLocator} from '../support/web-element-helper'
 import {ScenarioWorld} from './setup/world'
 import {ElementKey} from '../env/global'
-import {inputValue, selectValue} from "../support/html-behaviour";
+import {inputElementValue, selectElementValue} from "../support/html-behaviour";
+import {getRandomData, RandomInputType, randomInputTypes} from '../support/random-data-helper'
 import {
     parseInput
 } from '../support/input-helper'
 import {logger} from '../logger'
+import {stringIsOfOptions} from "../support/options-helper";
 
 Then(
     /^I fill in the "([^"]*)" input with "([^"]*)"$/,
@@ -17,22 +19,25 @@ Then(
             globalConfig,
         } = this;
 
-        logger.log(`I fill in the ${elementKey} input with ${input}`)
+        logger.log(`I fill in the ${elementKey} input with ${input}`);
 
-        const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
+        const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 
         await waitFor(async () => {
+                const elementStable = await waitForSelector(page, elementIdentifier)
 
-            const elementStable = await waitForSelector(page, elementIdentifier)
+                if (elementStable) {
+                    const parsedInput = parseInput(input, globalConfig)
+                    await inputElementValue(page, elementIdentifier, parsedInput);
+                    return waitForResult.PASS
+                }
 
-            if (elementStable) {
-                const parsedInput = parseInput(input, globalConfig)
-                await inputValue(page, elementIdentifier, parsedInput)
-            }
-            return elementStable;
-        });
+                return waitForResult.ELEMENT_NOT_AVAILABLE
+            },
+            globalConfig,
+            {target: elementKey});
     }
-)
+);
 
 Then(
     /^I select the "([^"]*)" option from the "([^"]*)"$/,
@@ -41,18 +46,55 @@ Then(
             screen: {page},
             globalConfig,
         } = this;
-        logger.log(`I select the ${option} option from the ${elementKey}`)
+
+        logger.log(`I select the ${option} option from the ${elementKey}`);
+
+        const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
+
+        await waitFor(async () => {
+                const elementStable = await waitForSelector(page, elementIdentifier)
+
+                if (elementStable) {
+                    await selectElementValue(page, elementIdentifier, option);
+                    return waitForResult.PASS
+                }
+
+                return waitForResult.ELEMENT_NOT_AVAILABLE
+            },
+            globalConfig,
+            {target: elementKey});
+    }
+);
+
+Then(
+    /^I fill in the "([^"]*)" input with random "([^"]*)"$/,
+    async function (this: ScenarioWorld, elementKey: ElementKey, randomInputType: RandomInputType) {
+        const {
+            screen: {page},
+            globalConfig,
+        } = this
+
+        logger.log(`I fill in the ${elementKey} input with random ${randomInputType}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
-        await waitFor(async () => {
+        const validRandomInputType = stringIsOfOptions<RandomInputType>(randomInputType, randomInputTypes)
 
-            const elementStable = await waitForSelector(page, elementIdentifier)
+        await waitFor(
+            async () => {
 
-            if (elementStable) {
-                await selectValue(page, elementIdentifier, option)
-            }
-            return elementStable;
-        })
+                const elementStable = await waitForSelector(page, elementIdentifier)
+
+                if (elementStable) {
+                    const randomContent = getRandomData(validRandomInputType)
+                    await inputElementValue(page, elementIdentifier, randomContent)
+                    return waitForResult.PASS
+                }
+
+                return waitForResult.ELEMENT_NOT_AVAILABLE
+            },
+            globalConfig,
+            {target: elementKey}
+        )
     }
 )

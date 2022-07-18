@@ -8,6 +8,8 @@ var _waitForBehaviour = require("../../support/wait-for-behaviour");
 
 var _logger = require("../../logger");
 
+var _htmlBehaviour = require("../../support/html-behaviour");
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -32,20 +34,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   switch (_context.prev = _context.next) {
                     case 0:
                       _context.next = 2;
-                      return page.$(elementIdentifier);
+                      return (0, _htmlBehaviour.getElement)(page, elementIdentifier);
 
                     case 2:
                       _context.t0 = _context.sent;
                       isElementVisible = _context.t0 != null;
-                      return _context.abrupt("return", isElementVisible === !negate);
 
-                    case 5:
+                      if (!(isElementVisible === !negate)) {
+                        _context.next = 8;
+                        break;
+                      }
+
+                      return _context.abrupt("return", _waitForBehaviour.waitForResult.PASS);
+
+                    case 8:
+                      return _context.abrupt("return", _waitForBehaviour.waitForResult.ELEMENT_NOT_AVAILABLE);
+
+                    case 9:
                     case "end":
                       return _context.stop();
                   }
                 }
               }, _callee);
-            })));
+            })), globalConfig, {
+              target: elementKey,
+              failureMessage: "\uD83E\uDDE8 Expected ".concat(elementKey, " to ").concat(negate ? 'not ' : '', "be displayed \uD83E\uDDE8")
+            });
 
           case 5:
           case "end":
@@ -59,7 +73,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return _ref.apply(this, arguments);
   };
 }());
-(0, _cucumber.Then)(/^the "([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd)" "([^"]*)" should(not)? be displayed$/, /*#__PURE__*/function () {
+(0, _cucumber.Then)(/^the "([0-9]+th|[0-9]+st|[0-9]+nd|[0-9]+rd)" "([^"]*)" should( not)? be displayed$/, /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(elementPosition, elementKey, negate) {
     var _elementPosition$matc;
 
@@ -70,7 +84,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             page = this.screen.page, globalConfig = this.globalConfig;
 
-            _logger.logger.log("the ".concat(elementKey, " should ").concat(negate ? 'not' : '', " be displayed"));
+            _logger.logger.log("the ".concat(elementPosition, " ").concat(elementKey, " should ").concat(negate ? 'not' : '', "be displayed"));
 
             elementIdentifier = (0, _webElementHelper.getElementLocator)(page, elementKey, globalConfig);
             index = Number((_elementPosition$matc = elementPosition.match(/\d/g)) === null || _elementPosition$matc === void 0 ? void 0 : _elementPosition$matc.join('')) - 1;
@@ -82,20 +96,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   switch (_context3.prev = _context3.next) {
                     case 0:
                       _context3.next = 2;
-                      return page.$("".concat(elementIdentifier, ">>nth=").concat(index));
+                      return (0, _htmlBehaviour.getElementAtIndex)(page, elementIdentifier, index);
 
                     case 2:
                       _context3.t0 = _context3.sent;
                       isElementVisible = _context3.t0 != null;
-                      return _context3.abrupt("return", isElementVisible === !negate);
 
-                    case 5:
+                      if (!(isElementVisible === !negate)) {
+                        _context3.next = 8;
+                        break;
+                      }
+
+                      return _context3.abrupt("return", _waitForBehaviour.waitForResult.PASS);
+
+                    case 8:
+                      return _context3.abrupt("return", _waitForBehaviour.waitForResult.ELEMENT_NOT_AVAILABLE);
+
+                    case 9:
                     case "end":
                       return _context3.stop();
                   }
                 }
               }, _callee3);
-            })));
+            })), globalConfig, {
+              target: elementKey,
+              failureMessage: "\uD83E\uDDE8 Expected ".concat(elementPosition, " ").concat(elementKey, " to ").concat(negate ? 'not ' : '', "be displayed \uD83E\uDDE8")
+            });
 
           case 6:
           case "end":
@@ -129,19 +155,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   switch (_context5.prev = _context5.next) {
                     case 0:
                       _context5.next = 2;
-                      return page.$$(elementIdentifier);
+                      return (0, _htmlBehaviour.getElements)(page, elementIdentifier);
 
                     case 2:
                       element = _context5.sent;
-                      return _context5.abrupt("return", Number(count) === element.length === !negate);
 
-                    case 4:
+                      if (!(Number(count) === element.length === !negate)) {
+                        _context5.next = 7;
+                        break;
+                      }
+
+                      return _context5.abrupt("return", _waitForBehaviour.waitForResult.PASS);
+
+                    case 7:
+                      return _context5.abrupt("return", _waitForBehaviour.waitForResult.ELEMENT_NOT_AVAILABLE);
+
+                    case 8:
                     case "end":
                       return _context5.stop();
                   }
                 }
               }, _callee5);
-            })));
+            })), globalConfig, {
+              target: elementKey,
+              failureMessage: "\uD83E\uDDE8 Expected ".concat(count, " ").concat(elementKey, " to ").concat(negate ? 'not ' : '', "be displayed \uD83E\uDDE8")
+            });
 
           case 5:
           case "end":

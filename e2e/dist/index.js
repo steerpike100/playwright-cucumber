@@ -40,7 +40,10 @@ _dotenv["default"].config({
 var hostsConfig = (0, _parseEnv.getJsonFromFile)((0, _parseEnv.env)('HOSTS_URLS_PATH'));
 var pagesConfig = (0, _parseEnv.getJsonFromFile)((0, _parseEnv.env)('PAGE_URLS_PATH'));
 var emailsConfig = (0, _parseEnv.getJsonFromFile)((0, _parseEnv.env)('EMAILS_URLS_PATH'));
+var errorsConfig = (0, _parseEnv.getJsonFromFile)((0, _parseEnv.env)('ERRORS_URLS_PATH'));
+var mocksConfig = (0, _parseEnv.getJsonFromFile)((0, _parseEnv.env)('MOCKS_URLS_PATH'));
 var mappingFiles = fs.readdirSync("".concat(process.cwd()).concat((0, _parseEnv.env)('PAGE_ELEMENTS_PATH')));
+var payloadFiles = fs.readdirSync("".concat(process.cwd()).concat((0, _parseEnv.env)('MOCK_PAYLOAD_PATH')));
 
 var getEnvList = function getEnvList() {
   var envList = Object.keys(hostsConfig);
@@ -57,11 +60,19 @@ var pageElementMappings = mappingFiles.reduce(function (pageElementConfigAcc, fi
   var elementMappings = (0, _parseEnv.getJsonFromFile)("".concat((0, _parseEnv.env)('PAGE_ELEMENTS_PATH')).concat(file));
   return _objectSpread(_objectSpread({}, pageElementConfigAcc), {}, _defineProperty({}, key, elementMappings));
 }, {});
+var mockPayloadMappings = payloadFiles.reduce(function (payloadConfigAcc, file) {
+  var key = file.replace('.json', '');
+  var payloadMappings = (0, _parseEnv.getJsonFromFile)("".concat((0, _parseEnv.env)('MOCK_PAYLOAD_PATH')).concat(file));
+  return _objectSpread(_objectSpread({}, payloadConfigAcc), {}, _defineProperty({}, key, payloadMappings));
+}, {});
 var worldParameters = {
   hostsConfig: hostsConfig,
   pagesConfig: pagesConfig,
   emailsConfig: emailsConfig,
-  pageElementMappings: pageElementMappings
+  errorsConfig: errorsConfig,
+  mocksConfig: mocksConfig,
+  pageElementMappings: pageElementMappings,
+  mockPayloadMappings: mockPayloadMappings
 };
 var common = "./src/features/**/*.feature     --require-module ts-node/register     --require ./src/step-definitions/**/**/*.ts     --world-parameters ".concat(JSON.stringify(worldParameters), "     -f json:./reports/report.json     --format progress-bar     --parallel ").concat((0, _parseEnv.env)('PARALLEL'), "     --retry ").concat((0, _parseEnv.env)('RETRY'));
 var dev = (0, _tagHelper.generateCucumberRuntimeTag)(common, environment, getEnvList(), 'dev');

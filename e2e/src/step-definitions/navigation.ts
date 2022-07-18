@@ -1,4 +1,4 @@
-import {Given,Then} from '@cucumber/cucumber'
+import {Given, Then} from '@cucumber/cucumber'
 import {PageId} from '../env/global'
 import {
     navigateToPage,
@@ -9,36 +9,43 @@ import {waitFor} from '../support/wait-for-behaviour';
 import {ScenarioWorld} from "./setup/world";
 import {logger} from "../logger";
 
+
 Given(
     /^I am on the "([^"]*)" page$/,
-    async function (this: ScenarioWorld, pageId: PageId) {
-
+    async function(this: ScenarioWorld, pageId: PageId) {
         const {
-            screen: {page},
+            screen: { page },
             globalConfig,
         } = this;
 
         logger.log(`I am on the ${pageId} page`);
 
-        await navigateToPage(page, pageId, globalConfig)
+        await navigateToPage(page, pageId, globalConfig);
 
-        await waitFor(() => currentPathMatchesPageId(page, pageId, globalConfig))
+        await waitFor(() => currentPathMatchesPageId(page, pageId, globalConfig), globalConfig, {
+            target: pageId,
+            type: 'page'
+        });
 
     }
 )
 
-Then(
+Given(
     /^I am directed to the "([^"]*)" page$/,
     async function (this: ScenarioWorld, pageId: PageId) {
         const {
-            screen: {page},
+            screen: { page },
             globalConfig,
         } = this;
-        logger.log(`I am directed to the ${pageId} page`)
 
-        await waitFor(() => currentPathMatchesPageId(page, pageId, globalConfig))
+        logger.log(`I am directed to the ${pageId} page`);
+
+        await waitFor(() => currentPathMatchesPageId(page, pageId, globalConfig), globalConfig, {
+            target: pageId,
+            type: 'page'
+        });
     }
-)
+);
 
 Given(
     /^I refresh the "([^"]*)" page$/,
@@ -52,7 +59,9 @@ Given(
 
         await reloadPage(page)
 
-        await waitFor(() => currentPathMatchesPageId(page, pageId, globalConfig), {
+        await waitFor(() => currentPathMatchesPageId(page, pageId, globalConfig), globalConfig, {
+            target: pageId,
+            type: 'page',
             timeout: 30000,
         })
     }

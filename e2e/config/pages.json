@@ -1,14 +1,18 @@
 {
-  "home" :{
+  "home": {
     "route": "/",
     "regex": "^/$"
   },
-  "create contact" :{
+  "create contact": {
     "route": "/tasks/create",
     "regex": "^/tasks/create"
   },
-  "playground" :{
+  "playground": {
     "route": "/playground",
     "regex": "^/playground"
+  },
+  "edit contact": {
+    "route": "/edit",
+    "regex": "^/tasks/\\d+/edit"
   }
 }

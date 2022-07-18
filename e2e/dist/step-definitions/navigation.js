@@ -30,6 +30,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _context.next = 6;
             return (0, _waitForBehaviour.waitFor)(function () {
               return (0, _navigationBehaviour.currentPathMatchesPageId)(page, pageId, globalConfig);
+            }, globalConfig, {
+              target: pageId,
+              type: 'page'
             });
 
           case 6:
@@ -44,7 +47,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return _ref.apply(this, arguments);
   };
 }());
-(0, _cucumber.Then)(/^I am directed to the "([^"]*)" page$/, /*#__PURE__*/function () {
+(0, _cucumber.Given)(/^I am directed to the "([^"]*)" page$/, /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(pageId) {
     var page, globalConfig;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -58,6 +61,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _context2.next = 4;
             return (0, _waitForBehaviour.waitFor)(function () {
               return (0, _navigationBehaviour.currentPathMatchesPageId)(page, pageId, globalConfig);
+            }, globalConfig, {
+              target: pageId,
+              type: 'page'
             });
 
           case 4:
@@ -90,7 +96,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _context3.next = 6;
             return (0, _waitForBehaviour.waitFor)(function () {
               return (0, _navigationBehaviour.currentPathMatchesPageId)(page, pageId, globalConfig);
-            }, {
+            }, globalConfig, {
+              target: pageId,
+              type: 'page',
               timeout: 30000
             });
 
